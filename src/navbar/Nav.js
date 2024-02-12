@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { LuHeart } from "react-icons/lu";
+import { IoSearchOutline } from "react-icons/io5";
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
-      <nav className="relative bg-white shadow ">
-        <div className=" gap-32 w-full items-center px-6 py-0 mx-auto grid grid-cols-12">
+    <div className="">
+      <nav className=" md:relative  shadow-inner bg-gradient-to-l from-orange-200 via-orange-400 to-orange-600 ">
+        <div className="items-center px-6 py-0 mx-auto md:grid grid-cols-12">
           <div className="col-span-7  items-center justify-between">
             <p className="font-bold text-sm">
               Welcome to our online store Budbloke!
@@ -17,7 +18,7 @@ const Nav = () => {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+                className="text-gray-500 dark:text-gray-200  hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
                 aria-label="toggle menu"
               >
                 {isOpen ? (
@@ -60,7 +61,7 @@ const Nav = () => {
               isOpen
                 ? "translate-x-0 opacity-100 "
                 : "opacity-0 -translate-x-full"
-            } col-span-5    z-20 w-full  bg-white  md:mt-0 md:p-0 md:top-0 md:relative md:opacity-100 md:translate-x-0 md:flex md:items-center md:justify-between`}
+            } col-span-5    z-20 w-full   md:mt-0 md:p-0 md:top-0 md:relative md:opacity-100 md:translate-x-0 md:flex md:items-center md:justify-between`}
           >
             <div className=" px-2 -mx-4 md:flex-row md:mx-10 md:py-0 text-xs font-bold flex items-center ">
               <NavLink
@@ -115,6 +116,7 @@ const Nav = () => {
                   </ul>
                 </div>
               </NavLink>
+              <div>|</div>
 
               <NavLink
                 to="#"
@@ -141,16 +143,56 @@ const Nav = () => {
           </div>
         </div>
       </nav>
-          <div>
-              
+      <div className="container mx-auto items-center md:grid grid-cols-12 mt-6">
+        <div className="col-span-4 mx-auto">
+          <img
+            className="ml-3 md:w-12"
+            src="https://img.freepik.com/free-vector/cannabis-leaf-icon_98292-4592.jpg?size=626&ext=jpg&ga=GA1.1.96050015.1659979182&semt=ais"
+            alt=""
+          />
+          <p className="text-2xl">GANJA</p>
+        </div>
+        <div className="col-span-4 md:block hidden">
+          <div className="relative w-full">
+            <input
+              type="text"
+              placeholder="Type here"
+              className="input input-bordered md:w-[120%] rounded-3xl  "
+            />
 
+            <select className="absolute  inset-y-0 -right-2 flex border border-gray-2 font-medium p-2 text-xs ">
+              <option hidden disabled selected>
+                CATEGORY
+              </option>
 
-
-
-
-
-
-
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </select>
+            <button className="absolute inset-y-0 md:-right-[104px] w-24 rounded-e-full flex items-center border border-gray-2 font-medium p-2 ">
+              <p className="mx-auto">
+                {" "}
+                <IoSearchOutline />
+              </p>
+            </button>
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3"></div>
+          </div>
+        </div>
+        <div className="col-span-3 ml-40 md:block hidden">
+          <div className="flex">
+            <div>
+              <button className="btn btn-ghost bg-transparent outline-none hover:bg-transparent">
+                Button
+              </button>
+            </div>
+            <p>/</p>
+            <div>
+              <button className="btn btn-ghost bg-transparent outline-none hover:bg-transparent">
+                Button
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
