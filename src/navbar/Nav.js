@@ -129,7 +129,7 @@ const Nav = () => {
                 to="#"
                 className="px-2.5 hover:text-orange-500 py-2 md:mx-2"
               >
-                Sign in
+                Sign in..
               </NavLink>
               <NavLink
                 to="#"
