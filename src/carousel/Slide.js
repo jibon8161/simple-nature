@@ -4,6 +4,7 @@ import { GiLindenLeaf } from "react-icons/gi";
 import { PiDotsThreeVerticalBold } from "react-icons/pi";
 import { CiDollar } from "react-icons/ci";
 import { AiFillSafetyCertificate } from "react-icons/ai";
+import video from "../video (1080p).mp4";
 const Slide = () => {
   return (
     <div>
@@ -12,11 +13,14 @@ const Slide = () => {
         <div className=" col-span-8">
           <div className="carousel md:relative w-full">
             <div id="item1" className="carousel-item w-full">
-              <img
-                src="https://images.pexels.com/photos/8139600/pexels-photo-8139600.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              <video
                 className="w-full md:h-[50%] object-cover"
-                alt=""
-              />
+                loop
+                autoPlay
+                muted
+                playsInline
+                src={video}
+              ></video>
             </div>
             <div id="item2" className="carousel-item w-full">
               <img
@@ -25,7 +29,7 @@ const Slide = () => {
                 alt=""
               />
             </div>
-            <div id="item3" className="carousel-item w-full ">
+            <div id="item3" className="carousel-item w-full">
               <img
                 src="https://images.pexels.com/photos/8140283/pexels-photo-8140283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 className="w-full md:h-[50%] object-cover"
@@ -34,16 +38,35 @@ const Slide = () => {
             </div>
           </div>
           <div className="flex justify-center md:absolute w-full top-[600px] right-1.5  gap-2">
-            <a href="#item1" className="btn btn-xs hover:bg-orange-500">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "#item1";
+              }}
+              className="btn btn-xs hover:bg-orange-500"
+            >
               1
-            </a>
-            <a href="#item2" className="btn btn-xs hover:bg-orange-500">
+            </button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "#item2";
+              }}
+              className="btn btn-xs hover:bg-orange-500"
+            >
               2
-            </a>
-            <a href="#item3" className="btn btn-xs hover:bg-orange-500">
+            </button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "#item3";
+              }}
+              className="btn btn-xs hover:bg-orange-500"
+            >
               3
-            </a>
+            </button>
           </div>
+
           <div className="absolute bottom-52 ml-12 ">
             <div className="flex border  shadow-md p-4  ">
               <div className="flex gap-2 hover:text-green-600 ">
