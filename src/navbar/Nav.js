@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { LuHeart } from "react-icons/lu";
 import { IoSearchOutline } from "react-icons/io5";
+import { TbLayoutSidebarRightCollapseFilled } from "react-icons/tb";
+import Slide from "../carousel/Slide";
+
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="">
-      <nav className=" md:relative  shadow-inner bg-gradient-to-l from-orange-200 via-orange-400 to-orange-600 ">
+      <nav className=" md:relative  shadow-inner bg-green-50 ">
         <div className="items-center px-6 py-0 mx-auto md:grid grid-cols-12">
           <div className="col-span-7  items-center justify-between">
             <p className="font-bold text-sm">
@@ -144,15 +147,15 @@ const Nav = () => {
         </div>
       </nav>
       <div className="container mx-auto items-center md:grid grid-cols-12 mt-6">
-        <div className="col-span-4 mx-auto">
-          <img
-            className="ml-3 md:w-12"
-            src="https://img.freepik.com/free-vector/cannabis-leaf-icon_98292-4592.jpg?size=626&ext=jpg&ga=GA1.1.96050015.1659979182&semt=ais"
+        <div className="col-span-4 mx-auto ">
+          {/* <img
+            className="ml-3 w-8"
+            src="https://i.ibb.co/qyLDpjQ/Black-Elegant-Simple-Animation-Q-Cedilla-Logo-removebg-preview.png"
             alt=""
-          />
+          /> */}
           <p className="text-2xl">GANJA</p>
         </div>
-        <div className="col-span-4 md:block hidden">
+        <div className="col-span-4 md:block hidden mr-8">
           <div className="relative w-full">
             <input
               type="text"
@@ -179,21 +182,91 @@ const Nav = () => {
           </div>
         </div>
         <div className="col-span-3 ml-40 md:block hidden">
-          <div className="flex">
+          <div className="flex items-center ">
             <div>
-              <button className="btn btn-ghost bg-transparent outline-none hover:bg-transparent">
-                Button
+              <button className="btn btn-ghost bg-transparent outline-none hover:bg-transparent text-xs">
+                LOGIN
               </button>
             </div>
-            <p>/</p>
+            <p className="text-xs">|</p>
             <div>
-              <button className="btn btn-ghost bg-transparent outline-none hover:bg-transparent">
-                Button
+              <button className="btn btn-ghost bg-transparent outline-none hover:bg-transparent text-xs">
+                REGISTER
               </button>
+            </div>
+            <div>
+              <button></button>
+            </div>
+            <div className="navbar bg-base-100">
+              <div className="flex-none">
+                <div className="dropdown dropdown-end">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle"
+                  >
+                    <div className="indicator">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                        />
+                      </svg>
+                      <span className="badge badge-sm indicator-item">8</span>
+                    </div>
+                  </div>
+                  <div
+                    tabIndex={0}
+                    className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+                  >
+                    <div className="card-body">
+                      <span className="font-bold text-lg">8 Items</span>
+                      <span className="text-info">Subtotal: $999</span>
+                      <div className="card-actions">
+                        <button className="btn btn-primary btn-block">
+                          View cart
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      {/* <div className="divider divider-warning"></div> */}
+      <div className=" border border-gray-300 bg-gradient-to-l from-orange-200 via-orange-400 to-orange-500  mt-5  ">
+        <div className=" container mx-auto md:grid grid-cols-12">
+          <div className="col-span-1"></div>
+          <div className="col-span-10">
+            <div className="md:flex lg:gap-4 md:font-bold text-white">
+              <div className="flex items-center btn rounded-none bg-orange-600 font-extrabold text-white">
+                <div className="lg:text-2xl">
+                  <TbLayoutSidebarRightCollapseFilled />
+                </div>
+                <div>BROWSE CATEGORIES</div>
+              </div>
+              <button>Home</button>
+              <button className="ml-2 md:ml-0">Contact us</button>
+              <button className="ml-2 md:ml-0">My account</button>
+              <button className="ml-2 md:ml-0">Shop</button>
+              <button className="ml-2 md:ml-0">Track Order</button>
+            </div>
+          </div>
+          <div className="col-span-1"></div>
+        </div>
+      </div>
+
+      <Slide></Slide>
     </div>
   );
 };
