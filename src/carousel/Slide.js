@@ -14,7 +14,7 @@ const Slide = () => {
           <div className="carousel md:relative w-full">
             <div id="item1" className="carousel-item w-full">
               <video
-                className="w-full md:h-[50%] object-cover"
+                className="w-full md:h-[70%] object-cover"
                 loop
                 autoPlay
                 muted
@@ -37,7 +37,7 @@ const Slide = () => {
               />
             </div>
           </div>
-          <div className="flex justify-center md:absolute w-full top-[600px] right-1.5  gap-2">
+          <div className="flex justify-center md:absolute w-full top-[800px] right-1.5  gap-2">
             <button
               onClick={(e) => {
                 e.preventDefault();
@@ -67,8 +67,8 @@ const Slide = () => {
             </button>
           </div>
 
-          <div className="absolute bottom-52 ml-12 ">
-            <div className="flex border  shadow-md p-4  ">
+          <div className="lg:absolute bottom-3 md:ml-12 ">
+            <div className="md:flex border  shadow-md p-4  ">
               <div className="flex gap-2 hover:text-green-600 ">
                 <p className="text-6xl font-thin rounded-full shadow-inner">
                   <CiDeliveryTruck />
@@ -80,7 +80,7 @@ const Slide = () => {
                   </p>
                 </div>
               </div>
-              <div className="text-6xl text-gray-400">
+              <div className="text-6xl text-gray-400 hidden md:block">
                 {/* <RxDividerVertical /> */}
                 <PiDotsThreeVerticalBold />
               </div>
@@ -95,7 +95,7 @@ const Slide = () => {
                   </p>
                 </div>
               </div>
-              <div className="text-6xl text-gray-400">
+              <div className="text-6xl text-gray-400 hidden md:block">
                 {/* <RxDividerVertical /> */}
                 <PiDotsThreeVerticalBold />
               </div>
@@ -110,7 +110,7 @@ const Slide = () => {
                   </p>
                 </div>
               </div>
-              <div className="text-6xl text-gray-400">
+              <div className="text-6xl text-gray-400 hidden md:block">
                 {/* <RxDividerVertical /> */}
                 <PiDotsThreeVerticalBold />
               </div>
@@ -125,7 +125,7 @@ const Slide = () => {
                   </p>
                 </div>
               </div>
-              <div className="text-6xl text-gray-400">
+              <div className="text-6xl text-gray-400 hidden md:block">
                 {/* <RxDividerVertical /> */}
                 <PiDotsThreeVerticalBold />
               </div>

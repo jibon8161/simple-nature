@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { LuHeart } from "react-icons/lu";
 import { IoSearchOutline } from "react-icons/io5";
 import { TbLayoutSidebarRightCollapseFilled } from "react-icons/tb";
-import Slide from "../carousel/Slide";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -155,7 +154,7 @@ const Nav = () => {
           /> */}
           <p className="text-2xl">GANJA</p>
         </div>
-        <div className="col-span-4 md:block hidden mr-8">
+        <div className="col-span-4 lg:block hidden mr-8">
           <div className="relative w-full">
             <input
               type="text"
@@ -172,7 +171,7 @@ const Nav = () => {
               <option>Option 2</option>
               <option>Option 3</option>
             </select>
-            <button className="absolute inset-y-0 md:-right-[104px] w-24 rounded-e-full flex items-center border border-gray-2 font-medium p-2 ">
+            <button className="absolute inset-y-0 md:-right-[103px] w-24 rounded-e-full flex items-center border border-gray-2 font-medium p-2 ">
               <p className="mx-auto">
                 {" "}
                 <IoSearchOutline />
@@ -181,7 +180,7 @@ const Nav = () => {
             <div className="absolute inset-y-0 right-0 flex items-center pr-3"></div>
           </div>
         </div>
-        <div className="col-span-3 ml-40 md:block hidden">
+        <div className="col-span-3 lg:ml-40 md:block hidden">
           <div className="flex items-center ">
             <div>
               <button className="btn btn-ghost bg-transparent outline-none hover:bg-transparent text-xs">
@@ -208,7 +207,7 @@ const Nav = () => {
                     <div className="indicator">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
+                        className="h-5 w-5 "
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -265,8 +264,6 @@ const Nav = () => {
           <div className="col-span-1"></div>
         </div>
       </div>
-
-      <Slide></Slide>
     </div>
   );
 };
