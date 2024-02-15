@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Slide from "../carousel/Slide";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [items, setItems] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     fetch("http://localhost:5000/item")
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
 
-  console.log(items);
+  const Redirect = (id) => {
+    // setData(id);
+    navigate(`details/${id}`);
+    console.log(id);
+  };
 
   return (
     <div>
@@ -27,17 +32,14 @@ const Home = () => {
           <div className="col-span-10">
             <div className="grid grid-cols-3 gap-12">
               {items?.map((item) =>
-                item.trend === "false" ? (
-                  <div className="hidden">hi</div>
-                ) : (
+                item.trend === "true" ? (
                   <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto ">
                     <img
                       className="
                     w-full
                     h-64
-                   
+                   object-cover
                     bg-center
-                    bg-cover
                     rounded-lg
                     shadow-md"
                       src={item.url}
@@ -53,12 +55,17 @@ const Home = () => {
                         <span className="font-bold text-gray-800 dark:text-gray-200">
                           {item.prange}
                         </span>
-                        <button className="px-2 py-3 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-orange-500 rounded hover:bg-gray-700  focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
-                          Add to cart
+                        <button
+                          onClick={() => Redirect(item?._id)}
+                          className="px-2 py-3 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-orange-500 rounded hover:bg-gray-700  focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
+                        >
+                          Buy now
                         </button>
                       </div>
                     </div>
                   </div>
+                ) : (
+                  <div className="hidden">hi</div>
                 )
               )}
             </div>

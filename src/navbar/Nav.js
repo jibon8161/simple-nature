@@ -198,7 +198,7 @@ const Nav = () => {
             </div>
             <div className="navbar bg-base-100">
               <div className="flex-none">
-                <div className="dropdown dropdown-end">
+                {/* <div className="dropdown dropdown-end">
                   <div
                     tabIndex={0}
                     role="button"
@@ -236,25 +236,25 @@ const Nav = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         </div>
       </div>
       {/* <div className="divider divider-warning"></div> */}
-      <div className=" border border-gray-300 bg-gradient-to-l from-orange-200 via-orange-400 to-orange-500  mt-5  ">
+      <div className=" border border-gray-300 bg-[#76A713]  mt-5 p-1  ">
         <div className=" container mx-auto md:grid grid-cols-12">
           <div className="col-span-1"></div>
-          <div className="col-span-10">
-            <div className="md:flex lg:gap-4 md:font-bold text-white">
-              <div className="flex items-center btn rounded-none bg-orange-600 font-extrabold text-white">
+          <div className="col-span-10 ">
+            <div className="md:flex items-center lg:gap-4 md:font-bold text-white ">
+              <div className="flex btn rounded-none bg-[#689311] font-extrabold text-white">
                 <div className="lg:text-2xl">
                   <TbLayoutSidebarRightCollapseFilled />
                 </div>
-                <div>BROWSE CATEGORIES</div>
+                <div className="">BROWSE CATEGORIES</div>
               </div>
-              <button>Home</button>
+              <NavLink to={"/"}>Home</NavLink>
               <button className="ml-2 md:ml-0">Contact us</button>
               <button className="ml-2 md:ml-0">My account</button>
               <button className="ml-2 md:ml-0">Shop</button>
