@@ -1,14 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
-import ReactImageMagnify from "react-image-magnify";
+// import ReactImageMagnify from "react-image-magnify";
+import { HiOutlinePlusCircle } from "react-icons/hi";
+import { HiOutlineMinusCircle } from "react-icons/hi";
+import { FaStar } from "react-icons/fa";
 const Details = () => {
   const [product, setProduct] = useState();
+  const [currentValue, setCurrentValue] = useState(0);
+
+  const [number, setNumber] = useState(1);
   const { id } = useParams();
+  const [total, setTotal] = useState();
   useEffect(() => {
     fetch(`http://localhost:5000/item/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   });
+
+  const handleClick = (value) => {
+    setCurrentValue(value);
+  };
+  // const calculate = (value) => {
+  //   // Example calculation, you can replace this with your own logic
+  //   setResult(value * 2);
+  // };
+
+  const handlePlus = () => {
+    setNumber(number + 1);
+  };
+
+  const handleMinus = () => {
+    setNumber(number - 1);
+  };
+
 
   return (
     <div>
@@ -50,13 +74,73 @@ const Details = () => {
               alt="`"
             />
             <div className="col-span-7 text-left p-8">
-              <h1 className="text-2xl font-bold ">{product?.name}</h1>
-              <p className="py-6">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
-              </p>
-              <button className="btn btn-primary">Get Started</button>
+              <h1 className="text-6xl font-bold ">{product?.name}</h1>
+              <div className="flex text-2xl mt-5 text-yellow-500">
+                <FaStar />
+                <FaStar />
+                <FaStar />
+                <FaStar />
+                <FaStar />
+              </div>
+              <div className="mt-5">
+                <p className="text-3xl font-semibold">{product?.prange}</p>
+              </div>
+              <div className="mt-5 text-gray-500">
+                <p>{product?.details}</p>
+              </div>
+              <div className="mt-5 font-bold">
+                <p>{product?.type}</p>
+              </div>
+              <div className="flex gap-2 mt-5">
+                <button
+                  onClick={() => handleClick(product.p1)}
+                  className="px-3 py-1 border hover:bg-green-600 hover:text-white font-normal shadow-sm"
+                >
+                  {product?.w1}
+                </button>
+                <button
+                  onClick={() => handleClick(product.p2)}
+                  className="px-3 py-1 border hover:bg-green-600 hover:text-white font-normal shadow-sm"
+                >
+                  {product?.w2}
+                </button>
+                <button
+                  onClick={() => handleClick(product.p3)}
+                  className="px-3 py-1 border hover:bg-green-600 hover:text-white font-normal shadow-sm"
+                >
+                  {product?.w3}
+                </button>
+                <button
+                  onClick={() => handleClick(product.p4)}
+                  className="px-3 py-1 border hover:bg-green-600 hover:text-white font-normal shadow-sm"
+                >
+                  {product?.w4}
+                </button>
+              </div>
+              <div className="mt-6">
+                <p className="text-3xl font-semibold">
+                  {" "}
+                  ${currentValue * number}
+                </p>
+              </div>
+              <div className="flex mt-7 gap-3 items-center ">
+                <button
+                  className=" text-4xl hover:text-green-500 "
+                  onClick={handleMinus}
+                >
+                  <HiOutlineMinusCircle />
+                </button>
+                <span className="text-3xl">{number}</span>
+                <button
+                  className=" hover:text-green-500 text-4xl    "
+                  onClick={handlePlus}
+                >
+                  <HiOutlinePlusCircle />
+                </button>
+                <button className="bg-[#689311] py-2 px-3 rounded-lg text-white font-semibold">
+                  Proceed to checkout
+                </button>
+              </div>
             </div>
           </div>
         </div>

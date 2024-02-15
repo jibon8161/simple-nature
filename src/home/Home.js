@@ -33,7 +33,10 @@ const Home = () => {
             <div className="grid grid-cols-3 gap-12">
               {items?.map((item) =>
                 item.trend === "true" ? (
-                  <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto ">
+                  <button
+                    onClick={() => Redirect(item?._id)}
+                    className="flex flex-col items-center justify-center w-full max-w-sm mx-auto hover:translate-y-3 "
+                  >
                     <img
                       className="
                     w-full
@@ -51,19 +54,19 @@ const Home = () => {
                         {item.name}
                       </h3>
 
-                      <div className="flex items-center justify-between px-1 py-4 bg-gray-200 dark:bg-gray-700">
-                        <span className="font-bold text-gray-800 dark:text-gray-200">
+                      <div className=" justify-between px-1 py-4 bg-gray-200 dark:bg-gray-700">
+                        <span className="font-bold text-2xl text-gray-800 dark:text-gray-200">
                           {item.prange}
                         </span>
-                        <button
+                        {/* <button
                           onClick={() => Redirect(item?._id)}
                           className="px-2 py-3 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-orange-500 rounded hover:bg-gray-700  focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
                         >
                           Buy now
-                        </button>
+                        </button> */}
                       </div>
                     </div>
-                  </div>
+                  </button>
                 ) : (
                   <div className="hidden">hi</div>
                 )
