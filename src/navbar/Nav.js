@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { LuHeart } from "react-icons/lu";
 import Lottie from "lottie-react";
 // import { IoSearchOutline } from "react-icons/io5";
@@ -131,18 +131,18 @@ const Nav = () => {
                   <p className="text-xs"> My Wishlist</p>
                 </div>
               </NavLink>
-              <NavLink
-                to="#"
+              <Link
+                to="/login"
                 className="px-2.5 hover:text-orange-500 py-2 md:mx-2"
               >
                 Sign in..
-              </NavLink>
-              <NavLink
-                to="#"
+              </Link>
+              <Link
+                to="/reg"
                 className="px-2.5 hover:text-orange-500 py-2 md:mx-2"
               >
                 Sign up
-              </NavLink>
+              </Link>
             </div>
           </div>
         </div>
