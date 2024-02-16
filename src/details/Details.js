@@ -19,11 +19,9 @@ const Details = () => {
 
   const handleClick = (value) => {
     setCurrentValue(value);
+    setTotal(currentValue * number);
+    console.log(total);
   };
-  // const calculate = (value) => {
-  //   // Example calculation, you can replace this with your own logic
-  //   setResult(value * 2);
-  // };
 
   const handlePlus = () => {
     setNumber(number + 1);
@@ -33,6 +31,12 @@ const Details = () => {
     setNumber(number - 1);
   };
 
+  const [activeButton, setActiveButton] = useState(null);
+
+  const buttonData = [
+    { id: 1, label: "Description", content: `${product?.description}` },
+    { id: 2, label: "Additional information", content: `${product?.weight}` },
+  ];
 
   return (
     <div>
@@ -94,25 +98,25 @@ const Details = () => {
               <div className="flex gap-2 mt-5">
                 <button
                   onClick={() => handleClick(product.p1)}
-                  className="px-3 py-1 border hover:bg-green-600 hover:text-white font-normal shadow-sm"
+                  className="px-3 py-1 border hover:bg-[#689311] hover:text-white font-normal shadow-sm"
                 >
                   {product?.w1}
                 </button>
                 <button
                   onClick={() => handleClick(product.p2)}
-                  className="px-3 py-1 border hover:bg-green-600 hover:text-white font-normal shadow-sm"
+                  className="px-3 py-1 border hover:bg-[#689311] hover:text-white font-normal shadow-sm"
                 >
                   {product?.w2}
                 </button>
                 <button
                   onClick={() => handleClick(product.p3)}
-                  className="px-3 py-1 border hover:bg-green-600 hover:text-white font-normal shadow-sm"
+                  className="px-3 py-1 border hover:bg-[#689311] hover:text-white font-normal shadow-sm"
                 >
                   {product?.w3}
                 </button>
                 <button
                   onClick={() => handleClick(product.p4)}
-                  className="px-3 py-1 border hover:bg-green-600 hover:text-white font-normal shadow-sm"
+                  className="px-3 py-1 border hover:bg-[#689311] hover:text-white font-normal shadow-sm"
                 >
                   {product?.w4}
                 </button>
@@ -141,10 +145,43 @@ const Details = () => {
                   Proceed to checkout
                 </button>
               </div>
+              <div className="mt-6">
+                <p className="">
+                  <span className="font-bold mr-1">Category:</span>
+                  {product?.category}
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      <div className="container mx-auto  flex flex-wrap justify-center mt-8 ">
+        {/* Render buttons */}
+        {buttonData.map((button) => (
+          <button
+            key={button.id}
+            className={`bg-transparent hover:bg-[#689311]  btn font-bold py-2 px-4 rounded m-2 hover:text-white  ${
+              activeButton === button.id && "bg-"
+            }`}
+            onClick={() => setActiveButton(button.id)}
+          >
+            {button.label}
+          </button>
+        ))}
+
+        {/* Render content */}
+        {buttonData.map((button) => (
+          <div
+            key={button.id}
+            className={`w-full p-8 text-gray-500 mt-5 border border-gray-200 font-semibold  ${
+              activeButton === button.id ? "block" : "hidden"
+            }`}
+          >
+            {button.content}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
