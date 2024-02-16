@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { LuHeart } from "react-icons/lu";
-import { IoSearchOutline } from "react-icons/io5";
+import Lottie from "lottie-react";
+// import { IoSearchOutline } from "react-icons/io5";
 import { TbLayoutSidebarRightCollapseFilled } from "react-icons/tb";
 
+import abc from "../abc.json";
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -13,7 +15,7 @@ const Nav = () => {
         <div className="items-center px-6 py-0 mx-auto md:grid grid-cols-12">
           <div className="col-span-7  items-center justify-between">
             <p className="font-bold text-sm">
-              Welcome to our online store Budbloke!
+              Welcome to our online store Ausplug!
             </p>
 
             <div className="flex lg:hidden">
@@ -145,49 +147,22 @@ const Nav = () => {
           </div>
         </div>
       </nav>
-      <div className="container mx-auto items-center md:grid grid-cols-12 mt-6">
-        <div className="col-span-4 mx-auto ">
-          {/* <img
-            className="ml-3 w-8"
-            src="https://i.ibb.co/qyLDpjQ/Black-Elegant-Simple-Animation-Q-Cedilla-Logo-removebg-preview.png"
-            alt=""
-          /> */}
-          <p className="text-2xl">GANJA</p>
-        </div>
-        <div className="col-span-4 lg:block hidden mr-8">
-          <div className="relative w-full">
-            <input
-              type="text"
-              placeholder="Type here"
-              className="input input-bordered md:w-[120%] rounded-3xl  "
-            />
-
-            <select className="absolute  inset-y-0 -right-2 flex border border-gray-2 font-medium p-2 text-xs ">
-              <option hidden disabled selected>
-                CATEGORY
-              </option>
-
-              <option>Option 1</option>
-              <option>Option 2</option>
-              <option>Option 3</option>
-            </select>
-            <button className="absolute inset-y-0 md:-right-[103px] w-24 rounded-e-full flex items-center border border-gray-2 font-medium p-2 ">
-              <p className="mx-auto">
-                {" "}
-                <IoSearchOutline />
-              </p>
-            </button>
-            <div className="absolute inset-y-0 right-0 flex items-center pr-3"></div>
-          </div>
-        </div>
-        <div className="col-span-3 lg:ml-40 md:block hidden">
-          <div className="flex items-center ">
-            <div>
+      <div className="container mx-auto items-center">
+        <div className="col-span-4 mx-auto  mt-8">
+          <p className="text-7xl text-[#1B351E] font-sembold font-serif">
+            AUSPLUG
+          </p>
+          <Lottie
+            className="w-72 mx-auto p-1 lg:absolute -top-2 left-96 right-72 "
+            animationData={abc}
+          ></Lottie>
+          <div className="flex items-center justify-center ">
+            {/* <div>
               <button className="btn btn-ghost bg-transparent outline-none hover:bg-transparent text-xs">
                 LOGIN
               </button>
-            </div>
-            <p className="text-xs">|</p>
+            </div> */}
+            {/* <p className="text-xs">|</p>
             <div>
               <button className="btn btn-ghost bg-transparent outline-none hover:bg-transparent text-xs">
                 REGISTER
@@ -195,7 +170,7 @@ const Nav = () => {
             </div>
             <div>
               <button></button>
-            </div>
+            </div> */}
             <div className="navbar bg-base-100">
               <div className="flex-none">
                 {/* <div className="dropdown dropdown-end">
@@ -241,9 +216,35 @@ const Nav = () => {
             </div>
           </div>
         </div>
+        {/* <div className="col-span-4 lg:block hidden mr-8">
+          <div className="relative w-full">
+            <input
+              type="text"
+              placeholder="Type here"
+              className="input input-bordered md:w-[120%] rounded-3xl  "
+            />
+
+            <select className="absolute  inset-y-0 -right-2 flex border border-gray-2 font-medium p-2 text-xs ">
+              <option hidden disabled selected>
+                CATEGORY
+              </option>
+
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </select>
+            <button className="absolute inset-y-0 md:-right-[103px] w-24 rounded-e-full flex items-center border border-gray-2 font-medium p-2 ">
+              <p className="mx-auto">
+                {" "}
+                <IoSearchOutline />
+              </p>
+            </button>
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3"></div>
+          </div>
+        </div> */}
       </div>
       {/* <div className="divider divider-warning"></div> */}
-      <div className=" border border-gray-300 bg-[#76A713]  mt-5 p-1  ">
+      <div className=" border border-gray-300 bg-[#76A713]  p-2  ">
         <div className=" container mx-auto md:grid grid-cols-12">
           <div className="col-span-1"></div>
           <div className="col-span-10 ">

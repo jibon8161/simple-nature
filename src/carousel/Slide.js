@@ -8,7 +8,7 @@ import video from "../video (1080p).mp4";
 const Slide = () => {
   return (
     <div>
-      <div className="lg:grid grid-cols-12 mt-5">
+      <div className="lg:grid grid-cols-12 mt-3">
         <div className="col-span-2"></div>
         <div className=" col-span-8">
           <div className="carousel md:relative w-full">
