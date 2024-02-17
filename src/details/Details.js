@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 // import ReactImageMagnify from "react-image-magnify";
 import { HiOutlinePlusCircle } from "react-icons/hi";
 import { HiOutlineMinusCircle } from "react-icons/hi";
 import { FaStar } from "react-icons/fa";
+import Checkout from "../checkout/Checkout";
 const Details = () => {
   const [product, setProduct] = useState();
   const [currentValue, setCurrentValue] = useState(0);
-
+  const navigate = useNavigate();
   const [number, setNumber] = useState(1);
   const { id } = useParams();
   const [total, setTotal] = useState();
@@ -38,6 +39,18 @@ const Details = () => {
     { id: 2, label: "Additional information", content: `${product?.weight}` },
   ];
 
+  const sendDataToComp2 = () => {
+    // Simulated data to send
+    const data1 = product?.name;
+    const data2 = currentValue * number;
+
+    // Save both data items to localStorage
+    const dataArray = [data1, data2];
+
+    // Save the array to localStorage
+    localStorage.setItem("dataForComp2", JSON.stringify(dataArray));
+    navigate("/check");
+  };
   return (
     <div>
       <div>
@@ -141,7 +154,10 @@ const Details = () => {
                 >
                   <HiOutlinePlusCircle />
                 </button>
-                <button className="bg-[#689311] py-2 px-3 rounded-lg text-white font-semibold">
+                <button
+                  onClick={sendDataToComp2}
+                  className="bg-[#689311] py-2 px-3 rounded-lg text-white font-semibold"
+                >
                   Proceed to checkout
                 </button>
               </div>
@@ -182,6 +198,9 @@ const Details = () => {
           </div>
         ))}
       </div>
+      {/* <div className="">
+        <Checkout data={product?.name} data1={total}></Checkout>
+      </div> */}
     </div>
   );
 };
