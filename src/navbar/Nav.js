@@ -257,8 +257,12 @@ const Nav = () => {
                 <div className="">BROWSE CATEGORIES</div>
               </div>
               <NavLink to={"/"}>Home</NavLink>
-              <button className="ml-2 md:ml-0">Contact us</button>
-              <button className="ml-2 md:ml-0">My account</button>
+              <NavLink to={""} className="ml-2 md:ml-0">
+                Contact us
+              </NavLink>
+              <NavLink to={"/login"} className="ml-2 md:ml-0">
+                My account
+              </NavLink>
               <button className="ml-2 md:ml-0">Shop</button>
               <button className="ml-2 md:ml-0">Track Order</button>
             </div>

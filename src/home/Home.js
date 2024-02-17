@@ -3,6 +3,26 @@ import Slide from "../carousel/Slide";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const [percent, setPercent] = useState(0);
+  const circumference = 30 * 2 * Math.PI;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      setPercent(Math.round((winScroll / height) * 100));
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
@@ -129,6 +149,40 @@ const Home = () => {
           <div className="col-span-1"></div>
         </div>
       </section>
+      <div className="fixed bottom-5 left-5">
+        <svg className="w-20 h-20">
+          <circle
+            className="text-gray-300"
+            strokeWidth="5"
+            stroke="currentColor"
+            fill="transparent"
+            r="30"
+            cx="40"
+            cy="40"
+          />
+          <circle
+            className="text-[#FF5800]"
+            strokeWidth="5"
+            strokeDasharray={circumference}
+            strokeDashoffset={circumference - (percent / 100) * circumference}
+            strokeLinecap="round"
+            stroke="currentColor"
+            fill="transparent"
+            r="30"
+            cx="40"
+            cy="40"
+          />
+          <text
+            x="50%"
+            y="50%"
+            dominantBaseline="middle"
+            textAnchor="middle"
+            className="text-lg font-bold text-blue-600"
+          >
+            {percent}%
+          </text>
+        </svg>
+      </div>
     </div>
   );
 };
