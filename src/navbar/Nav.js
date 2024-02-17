@@ -67,7 +67,7 @@ const Nav = () => {
                 : "opacity-0 -translate-x-full"
             } col-span-5    z-20 w-full   md:mt-0 md:p-0 md:top-0 md:relative md:opacity-100 md:translate-x-0 md:flex md:items-center md:justify-between`}
           >
-            <div className=" px-2 -mx-4 md:flex-row md:mx-10 md:py-0 text-xs font-bold flex items-center ">
+            <div className=" px-2 -mx-4 md:flex-row md:mx-10 md:py-0 text-xs font-bold flex items-center justify-between ">
               <NavLink
                 to="#"
                 className="px-2.5 py-2 text-center  hover:bg-transparentmd:mx-2"
@@ -122,7 +122,7 @@ const Nav = () => {
               </NavLink>
               <div>|</div>
 
-              <NavLink
+              {/* <NavLink
                 to="#"
                 className="px-2.5 py-2 hover:text-orange-500  md:mx-2"
               >
@@ -130,13 +130,14 @@ const Nav = () => {
                   <LuHeart className="mt-1"></LuHeart>
                   <p className="text-xs"> My Wishlist</p>
                 </div>
-              </NavLink>
+              </NavLink> */}
               <Link
                 to="/login"
                 className="px-2.5 hover:text-orange-500 py-2 md:mx-2"
               >
-                Sign in..
+                Sign in
               </Link>
+              <div>|</div>
               <Link
                 to="/reg"
                 className="px-2.5 hover:text-orange-500 py-2 md:mx-2"

@@ -40,7 +40,13 @@ const Details = () => {
   ];
 
   const sendDataToComp2 = () => {
-    // Simulated data to send
+    if (currentValue === 0 || number === 0) {
+      alert(
+        "Prior to advancing to the checkout page, kindly ensure that you have selected the requisite product options."
+      );
+      return;
+    }
+
     const data1 = product?.name;
     const data2 = currentValue * number;
 
