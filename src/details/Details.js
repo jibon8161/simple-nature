@@ -90,7 +90,7 @@ const Details = () => {
       <div className="divider bg-[#689311]"></div>
       <section>
         <div className=" mx-auto items-center justify-between mt-8 ">
-          <div className="container grid grid-cols-12 mx-auto items-center justify-around ">
+          <div className="container md:grid grid-cols-12 mx-auto items-center justify-around ">
             <img
               src={product?.url}
               className="p-16 rounded-lg s col-span-5 "

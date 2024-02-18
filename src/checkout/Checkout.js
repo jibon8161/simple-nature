@@ -58,7 +58,7 @@ const Checkout = () => {
     event.preventDefault();
     console.log("Form data:", formData);
     sendEmail(event); // Call sendEmail function passing the event
-    // navigate("/thnk");
+    navigate("/thnk");
   };
 
   const [shippingCost, setShippingCost] = useState("");
@@ -133,12 +133,12 @@ const Checkout = () => {
       <form
         ref={form}
         onSubmit={handleSubmit}
-        className="container mx-auto grid grid-cols-12 mt-24 gap-10 "
+        className="container mx-auto md:grid grid-cols-12 mt-24 gap-10 "
       >
         <div className="col-span-2"></div>
         <div className="col-span-4">
           <p className="text-4xl font-bold mb-5 text-left ">Billing Details</p>
-          <div className="flex gap-4">
+          <div className="md:flex gap-4">
             <div className="form-control ">
               <label className="label">
                 <span className="label-text">
@@ -484,7 +484,7 @@ all orders not paid will not be process. NB: do not place an order if you’re n
             {/* Display area for selected option */}
             <div>
               {selectedOption && (
-                <div className="font-thin mt-5 text-left text-gray-400">
+                <div className="font-thin mt-5 text-left ">
                   <span className="font-bold text-left"></span>{" "}
                   <span>{selectedOption}</span>
                 </div>
