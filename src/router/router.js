@@ -6,6 +6,8 @@ import Login from "../login/Login";
 import Register from "../register/Register";
 import Checkout from "../checkout/Checkout";
 import Error from "../Error";
+import Thank from "../thank/Thank";
+import Contact from "../contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +34,14 @@ export const router = createBrowserRouter([
       {
         path: "/check",
         element: <Checkout></Checkout>,
+      },
+      {
+        path: "/thnk",
+        element: <Thank></Thank>,
+      },
+      {
+        path: "/cnt",
+        element: <Contact></Contact>,
       },
     ],
   },

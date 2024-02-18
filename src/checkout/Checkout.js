@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import emailjs from "emailjs-com";
 
 const Checkout = () => {
   const [data1, setData1] = useState(null);
   const [data2, setData2] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const getDataFromLocalStorage = () => {
       // Retrieve the array from localStorage
@@ -56,7 +57,8 @@ const Checkout = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Form data:", formData);
-    // Additional logic for handling form submission
+    sendEmail(event); // Call sendEmail function passing the event
+    // navigate("/thnk");
   };
 
   const [shippingCost, setShippingCost] = useState("");
@@ -72,6 +74,32 @@ const Checkout = () => {
     event.preventDefault();
     console.log("Selected shipping cost:", shippingCost);
     // Additional logic for handling form submission
+  };
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const templateParams = Object.fromEntries(formData.entries());
+
+    console.log("Template Params:", templateParams);
+
+    emailjs
+      .sendForm(
+        "service_jqm9fjb",
+        "template_m5ngaej",
+        form.current,
+        "yg2K7q36ASuFRqbXt",
+        templateParams
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   return (
@@ -103,6 +131,7 @@ const Checkout = () => {
       </div>
       <div className="divider bg-[#689311]"></div>
       <form
+        ref={form}
         onSubmit={handleSubmit}
         className="container mx-auto grid grid-cols-12 mt-24 gap-10 "
       >
@@ -199,12 +228,10 @@ const Checkout = () => {
               </span>
             </label>
             <input
-              type="text
-"
-              name="apartmant"
-              placeholder="Apartment,Suite,unit,etc (optional)
-"
-              value={formData.apartmant}
+              type="text"
+              name="apartment"
+              placeholder="Apartment,Suite,unit,etc (optional)"
+              value={formData.apartment}
               onChange={handleChange}
               className="input input-bordered rounded-none w-full"
             />
@@ -252,8 +279,7 @@ const Checkout = () => {
               </span>
             </label>
             <input
-              type="
-"
+              type="number"
               name="postcode"
               placeholder="Postcode
 "
@@ -263,6 +289,14 @@ const Checkout = () => {
               required
             />
           </div>
+          <input type="hidden" name="productName" value={data1} />
+          <input
+            type="hidden"
+            name="totalAmount"
+            value={shippingCost + parseFloat(data2)}
+          />
+          <input type="hidden" name="paymentMethod" value={selectedOption} />
+
           <div className="form-control mt-3">
             <label className="label">
               <span className="label-text">
@@ -270,8 +304,7 @@ const Checkout = () => {
               </span>
             </label>
             <input
-              type="number
-"
+              type="number"
               name="number"
               placeholder="Phone number with CountryCode
 "
@@ -288,11 +321,9 @@ const Checkout = () => {
               </span>
             </label>
             <input
-              type="email
-"
+              type="email"
               name="email"
-              placeholder="Email address
-"
+              placeholder="Email address"
               value={formData.email}
               onChange={handleChange}
               className="input input-bordered rounded-none w-full"
@@ -328,6 +359,7 @@ const Checkout = () => {
                             name="radiogroup"
                             value="20"
                             onChange={handleChange2}
+                            required
                           />
                           <span className="ml-1 font-medium">
                             {" "}
@@ -344,6 +376,7 @@ const Checkout = () => {
                             name="radiogroup"
                             value="0"
                             onChange={handleChange2}
+                            required
                           />
                           <span className="ml-1 font-medium text-left">
                             {" "}
@@ -359,6 +392,7 @@ const Checkout = () => {
                             name="radiogroup"
                             value="50"
                             onChange={handleChange2}
+                            required
                           />
                           <span className="ml-1 font-medium ">
                             {" "}
@@ -388,9 +422,10 @@ const Checkout = () => {
                   name="radiogroup"
                   value="Make your order and contact support for bank transfer details. We accept all Banks having instant transfer Osko system. Order will only be processed when funds are with us. Do not order if you’re not ready to make payment."
                   onChange={handleOptionChange}
+                  required
                   className="mr-2"
                 />
-                <span className="font-bold">Bank Transfers</span>
+                <span className="font-bold ">Bank Transfers</span>
               </label>
             </div>
 
@@ -403,6 +438,7 @@ const Checkout = () => {
                   value="Make your order and contact support for payments. Cardless cash is only offered by Westpac, St. George, Bank SA, Bank of Melbourne and CommBank.
 Make sure to have any of the above banks before choosing this method.Only Paid orders will be processed. Do not place an order if you have no intentions of making payments."
                   onChange={handleOptionChange}
+                  required
                   className="mr-2"
                 />
                 <span className="font-bold">Cardless Cash</span>
@@ -418,6 +454,7 @@ Make sure to have any of the above banks before choosing this method.Only Paid o
                   value="We accept just the physical steam and google gift cards. you can purchase them at Woolies, Coles, Kmart, JB HIFI, EB Games, & 7-Eleven stores.
 Once you make your order be sure you already have cards purchased and send us pictures of of the card codes for validation and processing of your order."
                   onChange={handleOptionChange}
+                  required
                   className="mr-2"
                 />
                 <span className="font-bold">Steam & Google Gift Cards</span>{" "}
