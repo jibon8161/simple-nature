@@ -97,13 +97,13 @@ const Home = () => {
 
             <div className="mt-32">
               <div>
-                <p className="text-6xl text-[#1B351E]  font-semibold underline">
+                <p className="text-6xl text-[#1B351E]  font-semibold underline mb-20">
                   All Products
                 </p>
 
                 <div className="grid grid-cols-3 gap-12">
                   {items?.map((item) =>
-                    item.trend === "false" ? (
+                    item.trend === false ? (
                       <button
                         onClick={() => Redirect(item?._id)}
                         className="flex flex-col items-center justify-center w-full max-w-sm mx-auto hover:translate-y-3 "
