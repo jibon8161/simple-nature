@@ -58,7 +58,7 @@ const Checkout = () => {
     event.preventDefault();
     console.log("Form data:", formData);
     sendEmail(event); // Call sendEmail function passing the event
-    // navigate("/thnk");
+    navigate("/thnk");
   };
 
   const [shippingCost, setShippingCost] = useState("");
@@ -467,9 +467,9 @@ Once you make your order be sure you already have cards purchased and send us pi
                   id="option4"
                   name="radiogroup"
                   value="Make your order and pay with Bitcoins, USDT and Ethereum to our wallets below
-BTC:   ( bc1qvysd3xsm9th3utpfdmk0qd6fvkvtmxa8qvgqs6 )
-USDT:  ( TJexdMyHTX8f1u3dTacGhB1aDLYwbMWxue ) ERC-20 Network
-ETH:  (0xC56d51a05B3F40C8aEe3bE0a82dE3CAc7Dc7Eda4) ERC-20 Network
+BTC: bc1qv2tqkvu9n7hjpksvulzzayjejq7pfnekn3jqmr
+USDT(TRC-20): THMsXPiCx6PcouVjWe7MgM24RtyGviKdto s
+ETH: 0x95E68bdF62d4DbECC585FA6D34730544bCbC2D2e
 and send screenshot of payment to us via Email, Wickr or Whatsapp so we can Process your order.
 all orders not paid will not be process. NB: do not place an order if you’re not ready to make payment immediately."
                   onChange={handleOptionChange}

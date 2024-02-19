@@ -26,7 +26,7 @@ const Home = () => {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:5000/item")
+    fetch("https://marua-server.vercel.app/item")
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
@@ -101,7 +101,7 @@ const Home = () => {
                   All Products
                 </p>
 
-                <div className="grid grid-cols-3 gap-12">
+                <div className="md:grid grid-cols-3 gap-12">
                   {items?.map((item) =>
                     item.trend === false ? (
                       <button

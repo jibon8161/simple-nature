@@ -13,7 +13,7 @@ const Details = () => {
   const { id } = useParams();
   const [total, setTotal] = useState();
   useEffect(() => {
-    fetch(`http://localhost:5000/item/${id}`)
+    fetch(`https://marua-server.vercel.app/item/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   });

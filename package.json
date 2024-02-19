@@ -1,5 +1,6 @@
 {
   "name": "marua",
+  "homepage": "https://ausplug.com.au/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
