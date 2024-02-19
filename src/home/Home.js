@@ -149,7 +149,7 @@ const Home = () => {
           <div className="col-span-1"></div>
         </div>
       </section>
-      <div className="fixed bottom-5 left-5">
+      <div className="fixed bottom-14 left-5">
         <svg className="w-20 h-20">
           <circle
             className="text-gray-300"

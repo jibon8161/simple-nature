@@ -248,7 +248,7 @@ const Nav = () => {
       <div className=" border border-gray-300 bg-[#76A713]  p-2  ">
         <div className=" container mx-auto md:grid grid-cols-12">
           <div className="col-span-1"></div>
-          <div className="col-span-10 text-xl ">
+          <div className="col-span-8 text-xl ">
             <div className="md:flex items-center lg:gap-4 md:font-bold text-white ">
               <div className="flex btn rounded-none bg-[#689311] font-extrabold text-white">
                 <div className="lg:text-2xl">
@@ -265,7 +265,13 @@ const Nav = () => {
               </NavLink>
             </div>
           </div>
-          <div className="col-span-1"></div>
+          <div className="col-span-3 items-center text-white font-semibold ">
+            <p className="text-white font-semibold">
+              {" "}
+              Address: Southbrook, Queensland 4363, Australia
+            </p>
+            <p>TeleGram : +61 426657749</p>
+          </div>
         </div>
       </div>
     </div>

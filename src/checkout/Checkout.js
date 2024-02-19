@@ -58,7 +58,7 @@ const Checkout = () => {
     event.preventDefault();
     console.log("Form data:", formData);
     sendEmail(event); // Call sendEmail function passing the event
-    navigate("/thnk");
+    // navigate("/thnk");
   };
 
   const [shippingCost, setShippingCost] = useState("");
@@ -467,11 +467,9 @@ Once you make your order be sure you already have cards purchased and send us pi
                   id="option4"
                   name="radiogroup"
                   value="Make your order and pay with Bitcoins, USDT and Ethereum to our wallets below
-Make your order and pay with Bitcoins, USDT and Ethereum to our wallets below
-BTC ( bc1qvysd3xsm9th3utpfdmk0qd6fvkvtmxa8qvgqs6 )
-USDT( TJexdMyHTX8f1u3dTacGhB1aDLYwbMWxue ) ERC-20 Network
-ETH(0xC56d51a05B3F40C8aEe3bE0a82dE3CAc7Dc7Eda4) ERC-20 Network
-
+BTC:   ( bc1qvysd3xsm9th3utpfdmk0qd6fvkvtmxa8qvgqs6 )
+USDT:  ( TJexdMyHTX8f1u3dTacGhB1aDLYwbMWxue ) ERC-20 Network
+ETH:  (0xC56d51a05B3F40C8aEe3bE0a82dE3CAc7Dc7Eda4) ERC-20 Network
 and send screenshot of payment to us via Email, Wickr or Whatsapp so we can Process your order.
 all orders not paid will not be process. NB: do not place an order if you’re not ready to make payment immediately."
                   onChange={handleOptionChange}
@@ -483,12 +481,32 @@ all orders not paid will not be process. NB: do not place an order if you’re n
 
             {/* Display area for selected option */}
             <div>
-              {selectedOption && (
-                <div className="font-thin mt-5 text-left ">
-                  <span className="font-bold text-left"></span>{" "}
-                  <span>{selectedOption}</span>
-                </div>
-              )}
+              <div>
+                {selectedOption && (
+                  <div className="font-thin mt-5 text-left">
+                    <span className="font-bold"></span>{" "}
+                    <span>
+                      {selectedOption.split("\n\n").map((part, index) => (
+                        <React.Fragment key={index}>
+                          {index > 0 && (
+                            <>
+                              <br />
+                              <br />
+                            </>
+                          )}{" "}
+                          {/* Add double line break except for the first part */}
+                          {part.split("\n").map((line, idx) => (
+                            <React.Fragment key={idx}>
+                              {line}
+                              <br /> <br />
+                            </React.Fragment>
+                          ))}
+                        </React.Fragment>
+                      ))}
+                    </span>
+                  </div>
+                )}
+              </div>
 
               <button
                 type="submit"

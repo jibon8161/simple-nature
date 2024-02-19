@@ -8,7 +8,7 @@ const Main = () => {
       <Nav></Nav>
       <Outlet></Outlet>
 
-      <footer className="footer mx-auto justify-center p-1  bg-[#689311] text-white mt-32 w-full ">
+      <footer className="footer items-center p-2 bg-[#689311] text-white mt-44">
         <aside className="items-center grid-flow-col">
           <svg
             width="36"
@@ -23,6 +23,15 @@ const Main = () => {
           </svg>
           <p>Copyright © 2024 - All right reserved AUSPLUG</p>
         </aside>
+        <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+          <div className="col-span-3 items-center text-white font-semibold ">
+            <p className="text-white font-semibold">
+              {" "}
+              Address: Southbrook, Queensland 4363, Australia
+            </p>
+            <p>TeleGram : +61 426657749</p>
+          </div>
+        </nav>
       </footer>
     </div>
   );
