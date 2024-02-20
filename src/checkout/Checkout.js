@@ -68,8 +68,8 @@ const Checkout = () => {
     };
     // Save template parameters in local storage
     localStorage.setItem("templateParams", JSON.stringify(templateParams));
-    // sendEmail(event); // Call sendEmail function passing the event
-    navigate("/thnk");
+    sendEmail(event); // Call sendEmail function passing the event
+    // navigate("/thnk");
   };
 
   const [shippingCost, setShippingCost] = useState("");
@@ -210,7 +210,7 @@ const Checkout = () => {
               name="country"
               placeholder="Country
 "
-              value={formData.country}
+              value="Australia"
               onChange={handleChange}
               className="input input-bordered rounded-none w-full"
               required
@@ -290,7 +290,7 @@ const Checkout = () => {
               </span>
             </label>
             <input
-              type="number"
+              type=""
               name="postcode"
               placeholder="Postcode
 "
@@ -481,7 +481,7 @@ Once you make your order be sure you already have cards purchased and send us pi
 BTC: bc1qv2tqkvu9n7hjpksvulzzayjejq7pfnekn3jqmr
 USDT(TRC-20): THMsXPiCx6PcouVjWe7MgM24RtyGviKdto s
 ETH: 0x95E68bdF62d4DbECC585FA6D34730544bCbC2D2e
-and send screenshot of payment to us via TeleGram so we can Process your order.
+and send screenshot of payment to us via TeleGram and Email(payment@ausplug.com.au) so we can Process your order.
 all orders not paid will not be process. NB: do not place an order if you’re not ready to make payment immediately."
                   onChange={handleOptionChange}
                   className="mr-2"

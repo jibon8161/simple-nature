@@ -8,6 +8,9 @@ import Checkout from "../checkout/Checkout";
 import Error from "../Error";
 import Thank from "../thank/Thank";
 import Contact from "../contact/Contact";
+import Weed from "../category/Weed";
+import Cocaine from "../category/Cocaine";
+import Pills from "../category/Pills";
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +45,18 @@ export const router = createBrowserRouter([
       {
         path: "/cnt",
         element: <Contact></Contact>,
+      },
+      {
+        path: "/weed",
+        element: <Weed></Weed>,
+      },
+      {
+        path: "/Cocaine",
+        element: <Cocaine></Cocaine>,
+      },
+      {
+        path: "/Pills",
+        element: <Pills></Pills>,
       },
     ],
   },

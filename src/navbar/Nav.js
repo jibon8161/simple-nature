@@ -250,11 +250,33 @@ const Nav = () => {
           <div className="col-span-1"></div>
           <div className="col-span-8 text-xl ">
             <div className="md:flex items-center lg:gap-4 md:font-bold text-white ">
-              <div className="flex btn rounded-none bg-[#689311] font-extrabold text-white">
-                <div className="lg:text-2xl">
-                  <TbLayoutSidebarRightCollapseFilled />
+              <div className="flex rounded-none items-center  font-extrabold text-white">
+                <div>
+                  <TbLayoutSidebarRightCollapseFilled></TbLayoutSidebarRightCollapseFilled>
                 </div>
-                {/* <div className="">BROWSE CATEGORIES</div> */}
+                <div className="dropdown text-black  ">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn-ghost m-1 bg-transparent md:font-bold text-white outline-none hover:bg-transparent  "
+                  >
+                    BROWSE CATEGORIES
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content z-[1] menu p-2 shadow bg-[#76A713] text-white items-center  rounded-box w-52"
+                  >
+                    <li>
+                      <Link to="/weed">WEED</Link>
+                    </li>
+                    <li>
+                      <Link to="/Cocaine">Cocaine</Link>
+                    </li>
+                    <li>
+                      <Link to="/Pills">Pills</Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
               <NavLink to={"/"}>Home</NavLink>
               <NavLink to={"/cnt"} className="ml-2 md:ml-0">

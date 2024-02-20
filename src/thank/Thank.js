@@ -32,7 +32,7 @@ const Thank = () => {
 
   const generateOrderNumber = () => {
     // Generate a random number between 100000 and 999999
-    const randomNumber = Math.floor(Math.random() * 900000) + 100000;
+    const randomNumber = Math.floor(Math.random() * 9000) + 1000;
     return `#${randomNumber}`;
   };
 
@@ -143,7 +143,7 @@ const Thank = () => {
                   Total amount:
                 </dt>
                 <dd className="text-sm text-gray-900">
-                  {templateParams?.totalAmount}
+                  ${templateParams?.totalAmount}
                 </dd>
               </div>
 
@@ -152,7 +152,9 @@ const Thank = () => {
                   Shipping address:
                 </dt>
                 <dd className="text-sm text-gray-900">
-                  {templateParams?.shippingAddress}
+                  {templateParams?.apartment}, {templateParams?.house},
+                  {templateParams?.state},{templateParams?.postcode},
+                  {templateParams?.number}
                 </dd>
               </div>
             </dl>
