@@ -54,23 +54,23 @@ const Checkout = () => {
     });
   };
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  console.log("Form data:", formData);
-  // Save form data in local storage
-  localStorage.setItem("formData", JSON.stringify(formData));
-  // Prepare template parameters
-  const templateParams = {
-    ...formData, // Include form data
-    productName: data1,
-    totalAmount: shippingCost + parseFloat(data2),
-    paymentMethod: selectedOption,
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Form data:", formData);
+    // Save form data in local storage
+    localStorage.setItem("formData", JSON.stringify(formData));
+    // Prepare template parameters
+    const templateParams = {
+      ...formData, // Include form data
+      productName: data1,
+      totalAmount: shippingCost + parseFloat(data2),
+      paymentMethod: selectedOption,
+    };
+    // Save template parameters in local storage
+    localStorage.setItem("templateParams", JSON.stringify(templateParams));
+    // sendEmail(event); // Call sendEmail function passing the event
+    navigate("/thnk");
   };
-  // Save template parameters in local storage
-  localStorage.setItem("templateParams", JSON.stringify(templateParams));
-  sendEmail(event); // Call sendEmail function passing the event
-  navigate("/thnk");
-};
 
   const [shippingCost, setShippingCost] = useState("");
 

@@ -36,8 +36,14 @@ const Thank = () => {
     return `#${randomNumber}`;
   };
 
+  const getFormattedDate = () => {
+    const currentDate = new Date();
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return currentDate.toLocaleDateString("en-US", options);
+  };
+
   return (
-    <div>
+    <div className="font-mono">
       <div className="hero mt-2 ">
         <img
           className="object-cover w-full"
@@ -66,17 +72,17 @@ const Thank = () => {
       <div className="divider bg-[#689311]"></div>
 
       <div className="mt-8">
-        <Lottie className="w-[10%] mx-auto p-1 " animationData={ani}></Lottie>
+        <Lottie className="w-[20%] mx-auto p-1 " animationData={ani}></Lottie>
         <p className="text-3xl text-[#1B351E] font-semibold">
           Congratulations!{" "}
           <span className="text-[#689311]">{formData?.firstname} </span>your
           order has been received.
         </p>
-
+        <div className="divider bg-[#689311]"></div>
         <div className="container mx-auto  mt-8 ">
           <div className="font-medium mt-5">
-            <span className="font-bold"></span>{" "}
-            <span>
+            <span className="font-bold text-left"></span>{" "}
+            <span className="">
               {templateParams?.paymentMethod
                 .split("\n\n")
                 .map((part, index) => (
@@ -97,13 +103,14 @@ const Thank = () => {
                 ))}
             </span>
           </div>
+          <p className="mt-16 text-red-700 font-bold ">Please note: </p>
         </div>
       </div>
 
       <div className="  flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-lg">
+        <div className=" w-full space-y-8 bg-white p-8 rounded-lg shadow-lg">
           <div>
-            <img className="mx-auto h-12 w-auto" src={icon} alt="Logo" />
+            <img className="mx-auto h-44 w-auto" src={icon} alt="Logo" />
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
               Order Received
             </h2>
@@ -115,40 +122,48 @@ const Thank = () => {
             <dl className="divide-y divide-gray-200">
               <div className="py-4 flex justify-between">
                 <dt className="text-sm font-medium text-gray-500">
+                  Peoduct name:
+                </dt>
+                <dd className="text-sm text-gray-900">
+                  {templateParams?.productName}
+                </dd>
+              </div>
+              <div className="py-4 flex justify-between">
+                <dt className="text-sm font-medium text-gray-500">
                   Order number:
                 </dt>
                 <dd className="text-sm text-gray-900">{orderNumber}</dd>
               </div>
               <div className="py-4 flex justify-between">
                 <dt className="text-sm font-medium text-gray-500">Date:</dt>
-                <dd className="text-sm text-gray-900">February 20, 2024</dd>
+                <dd className="text-sm text-gray-900">{getFormattedDate()}</dd>
               </div>
               <div className="py-4 flex justify-between">
                 <dt className="text-sm font-medium text-gray-500">
                   Total amount:
                 </dt>
-                <dd className="text-sm text-gray-900">$99.99</dd>
+                <dd className="text-sm text-gray-900">
+                  {templateParams?.totalAmount}
+                </dd>
               </div>
-              <div className="py-4 flex justify-between">
-                <dt className="text-sm font-medium text-gray-500">
-                  Payment method:
-                </dt>
-                <dd className="text-sm text-gray-900">Credit Card</dd>
-              </div>
+
               <div className="py-4 flex justify-between">
                 <dt className="text-sm font-medium text-gray-500">
                   Shipping address:
                 </dt>
                 <dd className="text-sm text-gray-900">
-                  1234 Elm Street, Springfield, IL
+                  {templateParams?.shippingAddress}
                 </dd>
               </div>
             </dl>
           </div>
           <div className="mt-8">
-            <button className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            <Link
+              to={"/"}
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#689311] hover:bg-[#689311] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
               Continue Shopping
-            </button>
+            </Link>
           </div>
         </div>
       </div>
