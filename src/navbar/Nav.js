@@ -275,6 +275,12 @@ const Nav = () => {
                     <li>
                       <Link to="/Pills">Pills</Link>
                     </li>
+                    <li>
+                      <Link to="/dmt">DMT</Link>
+                    </li>
+                    <li>
+                      <Link to="/lsd">LSD</Link>
+                    </li>
                   </ul>
                 </div>
               </div>

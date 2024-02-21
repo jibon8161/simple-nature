@@ -11,6 +11,8 @@ import Contact from "../contact/Contact";
 import Weed from "../category/Weed";
 import Cocaine from "../category/Cocaine";
 import Pills from "../category/Pills";
+import Pwd from "../category/Pwd";
+import Lsd from "../category/Lsd";
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +59,14 @@ export const router = createBrowserRouter([
       {
         path: "/Pills",
         element: <Pills></Pills>,
+      },
+      {
+        path: "/dmt",
+        element: <Pwd></Pwd>,
+      },
+      {
+        path: "/lsd",
+        element: <Lsd></Lsd>,
       },
     ],
   },
