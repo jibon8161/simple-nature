@@ -68,7 +68,8 @@ const Checkout = () => {
     };
     // Save template parameters in local storage
     localStorage.setItem("templateParams", JSON.stringify(templateParams));
-    sendEmail(event); // Call sendEmail function passing the event
+    sendEmail(event);
+    sendEmail2(event);
     // navigate("/thnk");
   };
 
@@ -97,10 +98,10 @@ const Checkout = () => {
 
     emailjs
       .sendForm(
-        "service_jqm9fjb",
-        "template_m5ngaej",
+        "service_3yc64rm",
+        "template_09gud7p",
         form.current,
-        "yg2K7q36ASuFRqbXt",
+        "Lhsi_WjjMbxN6WQFQ",
         templateParams
       )
       .then(
@@ -112,6 +113,45 @@ const Checkout = () => {
         }
       );
   };
+ const sendEmail2 = (e) => {
+   e.preventDefault();
+   const formData = new FormData(e.target);
+   const templateParams = Object.fromEntries(formData.entries());
+
+   console.log("Template Params:", templateParams);
+
+   emailjs
+     .sendForm(
+       "service_3yc64rm",
+       "template_gjicrog",
+       form.current,
+       "Lhsi_WjjMbxN6WQFQ",
+       templateParams
+     )
+     .then(
+       (result) => {
+         console.log(result.text);
+         // Reset form data after successful submission
+         setFormData({
+           firstname: "",
+           lastname: "",
+           company: "",
+           country: "",
+           house: "",
+           apartmant: "",
+           suburb: "",
+           state: "",
+           postcode: "",
+           number: "",
+           email: "",
+         });
+       },
+       (error) => {
+         console.log(error.text);
+       }
+     );
+ };
+
 
   return (
     <div className="">

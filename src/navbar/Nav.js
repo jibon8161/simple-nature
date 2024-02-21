@@ -250,7 +250,7 @@ const Nav = () => {
           <div className="col-span-1"></div>
           <div className="col-span-8 text-xl ">
             <div className="md:flex items-center lg:gap-4 md:font-bold text-white ">
-              <div className="flex rounded-none items-center  font-extrabold text-white">
+              <div className=" flex rounded-none items-center  font-extrabold text-white">
                 <div>
                   <TbLayoutSidebarRightCollapseFilled></TbLayoutSidebarRightCollapseFilled>
                 </div>

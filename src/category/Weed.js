@@ -16,7 +16,7 @@ const Weed = () => {
   };
 
   return (
-    <div className="max-h-screen">
+    <div className="">
       <p className="text-6xl text-[#1B351E] font-semibold underline mb-20 mt-16">
         WEED
       </p>
@@ -36,7 +36,7 @@ const Weed = () => {
                     alt=""
                   />
 
-                  <div className="w-56 overflow-hidden bg-green-500 rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+                  <div className="w-56 overflow-hidden bg-green-500 rounded-lg shadow-lg md:w-64 dark:bg-gray-800  mt-8">
                     <h3 className="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">
                       {item.name}
                     </h3>

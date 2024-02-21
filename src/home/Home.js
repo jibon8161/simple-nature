@@ -71,7 +71,7 @@ const Home = () => {
                 </div>
               ) : (
                 <div className="col-span-10">
-                  <div className="md:grid grid-cols-3 gap-12 ">
+                  <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-12 ">
                     {items?.map((item) =>
                       item.trend === "true" ? (
                         <button
@@ -120,7 +120,7 @@ const Home = () => {
                         All Products
                       </p>
 
-                      <div className="md:grid grid-cols-3 gap-12">
+                      <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-12">
                         {items?.map((item) =>
                           item.trend === false ? (
                             <button
