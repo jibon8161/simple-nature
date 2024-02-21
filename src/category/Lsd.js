@@ -28,7 +28,7 @@ const Lsd = () => {
                 <button
                   key={item._id}
                   onClick={() => redirectToDetails(item._id)}
-                  className="flex flex-col items-center justify-center w-full max-w-sm mx-auto hover:translate-y-3"
+                  className="flex flex-col items-center justify-center w-full max-w-sm mx-auto hover:translate-y-3 mt-12 md:mt-0 "
                 >
                   <img
                     className="w-full h-64 object-cover bg-center rounded-lg shadow-md"
@@ -36,7 +36,7 @@ const Lsd = () => {
                     alt=""
                   />
 
-                  <div className="w-56 overflow-hidden bg-green-500 rounded-lg shadow-lg md:w-64 dark:bg-gray-800  mt-8">
+                  <div className="w-56 overflow-hidden bg-green-500 rounded-lg shadow-lg md:w-64 dark:bg-gray-800 ">
                     <h3 className="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">
                       {item.name}
                     </h3>

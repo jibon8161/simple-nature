@@ -54,7 +54,7 @@ const Home = () => {
           {/* //categories product form home page  */}
           <section className="container mx-auto">
             <div>
-              <p className="text-6xl  font-semibold text-[#1B351E]  underline">
+              <p className="text-6xl  font-semibold text-[#1B351E]  underline font-mono">
                 Latest products
               </p>
             </div>
@@ -116,7 +116,7 @@ const Home = () => {
 
                   <div className="mt-32">
                     <div>
-                      <p className="text-6xl text-[#1B351E]  font-semibold underline mb-20">
+                      <p className="text-6xl text-[#1B351E]  font-semibold underline mb-20 font-mono">
                         All Products
                       </p>
 

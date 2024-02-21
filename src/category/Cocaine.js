@@ -20,17 +20,17 @@ const Cocaine = () => {
       <p className="text-6xl text-[#1B351E] font-semibold underline mb-20 mt-16">
         COCAINE
       </p>
-      <div className="mt-32">
+      <div className="mt-0 md:mt-32">
         <div className="">
           <div className="container mx-auto md:grid grid-cols-12">
             <div className="col-span-2"></div>
-            <div className="col-span-8 flex gap-4">
+            <div className="col-span-8 md:flex gap-4">
               {items?.map((item) =>
                 item.category === "Cocaine" ? (
                   <button
                     key={item._id}
                     onClick={() => redirectToDetails(item._id)}
-                    className="flex flex-col items-center justify-center w-full max-w-sm mx-auto hover:translate-y-3"
+                    className="flex flex-col items-center justify-center w-full max-w-sm mx-auto hover:translate-y-3 mt-4 md:mt-0"
                   >
                     <img
                       className="w-full h-64 object-cover bg-center rounded-lg shadow-md"

@@ -16,7 +16,7 @@ const Pills = () => {
   };
 
   return (
-    <div className="max-h-screen">
+    <div className="">
       <p className="text-6xl text-[#1B351E] font-semibold underline mb-20 mt-16">
         Pills
       </p>
@@ -28,7 +28,7 @@ const Pills = () => {
                 <button
                   key={item._id}
                   onClick={() => redirectToDetails(item._id)}
-                  className="flex flex-col items-center justify-center w-full max-w-sm mx-auto hover:translate-y-3"
+                  className="flex flex-col items-center justify-center w-full max-w-sm mx-auto hover:translate-y-3 mt-12 md:mt-0"
                 >
                   <img
                     className="w-full h-64 object-cover bg-center rounded-lg shadow-md"

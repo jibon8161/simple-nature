@@ -70,7 +70,7 @@ const Checkout = () => {
     localStorage.setItem("templateParams", JSON.stringify(templateParams));
     sendEmail(event);
     sendEmail2(event);
-    // navigate("/thnk");
+    navigate("/thnk");
   };
 
   const [shippingCost, setShippingCost] = useState("");
@@ -113,45 +113,44 @@ const Checkout = () => {
         }
       );
   };
- const sendEmail2 = (e) => {
-   e.preventDefault();
-   const formData = new FormData(e.target);
-   const templateParams = Object.fromEntries(formData.entries());
+  const sendEmail2 = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const templateParams = Object.fromEntries(formData.entries());
 
-   console.log("Template Params:", templateParams);
+    console.log("Template Params:", templateParams);
 
-   emailjs
-     .sendForm(
-       "service_3yc64rm",
-       "template_gjicrog",
-       form.current,
-       "Lhsi_WjjMbxN6WQFQ",
-       templateParams
-     )
-     .then(
-       (result) => {
-         console.log(result.text);
-         // Reset form data after successful submission
-         setFormData({
-           firstname: "",
-           lastname: "",
-           company: "",
-           country: "",
-           house: "",
-           apartmant: "",
-           suburb: "",
-           state: "",
-           postcode: "",
-           number: "",
-           email: "",
-         });
-       },
-       (error) => {
-         console.log(error.text);
-       }
-     );
- };
-
+    emailjs
+      .sendForm(
+        "service_3yc64rm",
+        "template_gjicrog",
+        form.current,
+        "Lhsi_WjjMbxN6WQFQ",
+        templateParams
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          // Reset form data after successful submission
+          setFormData({
+            firstname: "",
+            lastname: "",
+            company: "",
+            country: "",
+            house: "",
+            apartmant: "",
+            suburb: "",
+            state: "",
+            postcode: "",
+            number: "",
+            email: "",
+          });
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
 
   return (
     <div className="">
@@ -503,7 +502,7 @@ Make sure to have any of the above banks before choosing this method.Only Paid o
                   id="option3"
                   name="radiogroup"
                   value="We accept just the physical steam and google gift cards. you can purchase them at Woolies, Coles, Kmart, JB HIFI, EB Games, & 7-Eleven stores.
-Once you make your order be sure you already have cards purchased and send us pictures of of the card codes for validation and processing of your order."
+Once you make your order be sure you already have cards purchased and send us pictures of the card codes  via TeleGram Or Email us(payment@ausplug.com.au) so we can Process your order."
                   onChange={handleOptionChange}
                   required
                   className="mr-2"

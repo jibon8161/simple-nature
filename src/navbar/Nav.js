@@ -249,8 +249,8 @@ const Nav = () => {
         <div className=" container mx-auto md:grid grid-cols-12">
           <div className="col-span-1"></div>
           <div className="col-span-8 text-xl ">
-            <div className="md:flex items-center lg:gap-4 md:font-bold text-white ">
-              <div className=" flex rounded-none items-center  font-extrabold text-white">
+            <div className="md:flex items-center lg:gap-4 md:font-bold text-white">
+              <div className=" flex rounded-none items-center  font-extrabold text-white ml-12 md:ml-0">
                 <div>
                   <TbLayoutSidebarRightCollapseFilled></TbLayoutSidebarRightCollapseFilled>
                 </div>
@@ -264,16 +264,16 @@ const Nav = () => {
                   </div>
                   <ul
                     tabIndex={0}
-                    className="dropdown-content z-[1] menu p-2 shadow bg-[#76A713] text-white items-center  rounded-box w-52"
+                    className="dropdown-content z-[1] menu p-2 shadow bg-[#76A713] text-white items-center  rounded-box w-52 text-lg"
                   >
                     <li>
                       <Link to="/weed">WEED</Link>
                     </li>
                     <li>
-                      <Link to="/Cocaine">Cocaine</Link>
+                      <Link to="/Cocaine">COCAINE</Link>
                     </li>
                     <li>
-                      <Link to="/Pills">Pills</Link>
+                      <Link to="/Pills">PILLS</Link>
                     </li>
                     <li>
                       <Link to="/dmt">DMT</Link>
