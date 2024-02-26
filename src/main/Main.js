@@ -27,7 +27,7 @@ const Main = () => {
           <div className="col-span-3 items-center text-white font-semibold ">
             <p className="text-white font-semibold">
               {" "}
-              Address: Southbrook, Queensland 4363, Australia
+              Address: Melbourne VIC 3004, Australia
             </p>
             <p>TeleGram : +61 426657749</p>
           </div>

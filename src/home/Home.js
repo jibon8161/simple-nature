@@ -28,8 +28,14 @@ const Home = () => {
   useEffect(() => {
     fetch("https://marua-server.vercel.app/item")
       .then((res) => res.json())
-      .then((data) => setItems(data));
-    setLoading(false);
+      .then((data) => {
+        setItems(data);
+        setLoading(false); // Set loading to false after data is fetched
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false); // Also handle error case by setting loading to false
+      });
   }, []);
 
   const Redirect = (id) => {
@@ -41,11 +47,8 @@ const Home = () => {
   return (
     <div>
       {loading === true ? (
-        <div className="max-h-screen">
-          <span className="loading loading-dots loading-xs"></span>
-          <span className="loading loading-dots loading-sm"></span>
-          <span className="loading loading-dots loading-md"></span>
-          <span className="loading loading-dots loading-lg"></span>
+        <div className="flex justify-center items-center h-screen">
+          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-orange-600"></div>
         </div>
       ) : (
         <div>
@@ -61,8 +64,8 @@ const Home = () => {
 
             <div className="md:grid grid-cols-12 mt-20">
               <div className="col-span-1"></div>
-              {loading ? (
-                <div className="min-h-screen">
+              {loading === true ? (
+                <div className="container min-h-screen mx-auto w-full">
                   {" "}
                   <span className="loading loading-dots loading-xs"></span>
                   <span className="loading loading-dots loading-sm"></span>

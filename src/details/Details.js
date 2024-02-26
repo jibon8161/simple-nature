@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
-// import ReactImageMagnify from "react-image-magnify";
 import { HiOutlinePlusCircle } from "react-icons/hi";
 import { HiOutlineMinusCircle } from "react-icons/hi";
 import { FaStar } from "react-icons/fa";
 import Checkout from "../checkout/Checkout";
+
 const Details = () => {
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(true);
@@ -13,17 +13,18 @@ const Details = () => {
   const [number, setNumber] = useState(1);
   const { id } = useParams();
   const [total, setTotal] = useState();
+  const [activeButton, setActiveButton] = useState(1); // Set default active button to 1
+
   useEffect(() => {
     fetch(`https://marua-server.vercel.app/item/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
     setLoading(false);
-  }, []);
+  }, [id]);
 
   const handleClick = (value) => {
     setCurrentValue(value);
     setTotal(currentValue * number);
-    console.log(total);
   };
 
   const handlePlus = () => {
@@ -33,8 +34,6 @@ const Details = () => {
   const handleMinus = () => {
     setNumber(number - 1);
   };
-
-  const [activeButton, setActiveButton] = useState(null);
 
   const buttonData = [
     { id: 1, label: "Description", content: `${product?.description}` },
@@ -59,6 +58,7 @@ const Details = () => {
     localStorage.setItem("dataForComp2", JSON.stringify(dataArray));
     navigate("/check");
   };
+
   return (
     <div>
       {loading ? (
@@ -70,32 +70,30 @@ const Details = () => {
         </div>
       ) : (
         <div>
-          <div>
-            <div className="hero mt-2 ">
-              <img
-                className="object-cover w-full"
-                src="https://i.ibb.co/wszrkB7/11.jpg"
-                alt=""
-              />
-              <div className="hero-overlay"></div>
-              <div className="hero-content text-center">
-                <div className="max-w-md">
-                  <h1 className="mb-5 text-6xl font-extrabold text-white">
-                    Shop
-                  </h1>
-                  <div className="text-sm breadcrumbs text-white">
-                    <ul>
-                      <li>
-                        <NavLink to={"/"}>Home</NavLink>
-                      </li>
-                      <li>
-                        <NavLink>Products</NavLink>
-                      </li>
-                      <li>
-                        <NavLink>{product?.name}</NavLink>
-                      </li>
-                    </ul>
-                  </div>
+          <div className="hero mt-2 ">
+            <img
+              className="object-cover w-full"
+              src="https://i.ibb.co/wszrkB7/11.jpg"
+              alt=""
+            />
+            <div className="hero-overlay"></div>
+            <div className="hero-content text-center">
+              <div className="max-w-md">
+                <h1 className="mb-5 text-6xl font-extrabold text-white">
+                  Shop
+                </h1>
+                <div className="text-sm breadcrumbs text-white">
+                  <ul>
+                    <li>
+                      <NavLink to={"/"}>Home</NavLink>
+                    </li>
+                    <li>
+                      <NavLink>Products</NavLink>
+                    </li>
+                    <li>
+                      <NavLink>{product?.name}</NavLink>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -122,7 +120,10 @@ const Details = () => {
                     <p className="text-3xl font-semibold">{product?.prange}</p>
                   </div>
                   <div className="mt-5 text-gray-500">
-                    <p>{product?.details}</p>
+                    {/* Render product description with gaps */}
+                    {product?.details.split("\n").map((line, index) => (
+                      <p key={index}>{line}</p>
+                    ))}
                   </div>
                   <div className="mt-5 font-bold">
                     <p>{product?.type}</p>
@@ -209,17 +210,27 @@ const Details = () => {
             {buttonData.map((button) => (
               <div
                 key={button.id}
-                className={`w-full p-8 text-gray-500 mt-5 border border-gray-200 font-semibold  ${
+                className={`w-full p-8 text-gray-500 mt-5 border border-gray-200 font-semibold text-left  ${
                   activeButton === button.id ? "block" : "hidden"
                 }`}
               >
-                {button.content}
+                {button.content.split("\n").map((line, index) => (
+                  <React.Fragment key={index}>
+                    {index > 0 && <br />}{" "}
+                    {/* Add line break for each line after the first one */}
+                    <span
+                      style={{
+                        fontSize: index === 0 ? "2em" : "1em",
+                        color: index === 0 ? "DarkGreen" : "inherit",
+                      }}
+                    >
+                      {line}
+                    </span>
+                  </React.Fragment>
+                ))}
               </div>
             ))}
           </div>
-          {/* <div className="">
-        <Checkout data={product?.name} data1={total}></Checkout>
-      </div> */}
         </div>
       )}
     </div>
