@@ -18,8 +18,10 @@ const Details = () => {
   useEffect(() => {
     fetch(`https://marua-server.vercel.app/item/${id}`)
       .then((res) => res.json())
-      .then((data) => setProduct(data));
-    setLoading(false);
+      .then((data) => {
+        setProduct(data);
+        setLoading(false); // Set loading to false when data is fetched
+      });
   }, [id]);
 
   const handleClick = (value) => {
@@ -61,12 +63,9 @@ const Details = () => {
 
   return (
     <div>
-      {loading ? (
-        <div className="max-h-screen">
-          <span className="loading loading-dots loading-xs"></span>
-          <span className="loading loading-dots loading-sm"></span>
-          <span className="loading loading-dots loading-md"></span>
-          <span className="loading loading-dots loading-lg"></span>
+      {loading ? ( // Conditionally render loader
+        <div className="flex justify-center items-center h-screen">
+          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-orange-600"></div>
         </div>
       ) : (
         <div>
